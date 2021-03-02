@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+
+  catalog:
+    image: golang:1.14
+    #image: alpine:latest
+    environment:
+      PORT: 8002
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./out/catalog:/opt/experiments/
+    command: [/opt/experiments/a.out]
+
+  review:
+    image: golang:1.14
+    #image: alpine:latest
+    environment:
+      PORT: 8001
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./out/review:/opt/experiments/
+    command: [/opt/experiments/a.out]
+
